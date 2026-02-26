@@ -3,105 +3,115 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> Age Calculator</title>
+<title>My Projects</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
         font-family: 'Segoe UI', sans-serif;
     }
 
-    body {
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background: linear-gradient(135deg, #667eea, #764ba2);
+    body{
+        background: linear-gradient(135deg,#1f1c2c,#928dab);
+        color:white;
+        min-height:100vh;
+        padding:40px 20px;
     }
 
-    .container {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(15px);
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        text-align: center;
-        width: 350px;
-        color: white;
+    h1{
+        text-align:center;
+        margin-bottom:40px;
+        font-size:40px;
     }
 
-    h1 {
-        margin-bottom: 20px;
-        font-weight: 600;
+    .projects-container{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px,1fr));
+        gap:25px;
+        max-width:1100px;
+        margin:auto;
     }
 
-    input {
-        width: 100%;
-        padding: 12px;
-        border: none;
-        border-radius: 10px;
-        margin-bottom: 20px;
-        font-size: 16px;
-        outline: none;
+    .project-card{
+        background: rgba(255,255,255,0.1);
+        backdrop-filter: blur(10px);
+        padding:25px;
+        border-radius:15px;
+        transition:0.4s ease;
+        box-shadow:0 8px 20px rgba(0,0,0,0.3);
     }
 
-    button {
-        width: 100%;
-        padding: 12px;
-        border: none;
-        border-radius: 10px;
-        background: #ffffff;
-        color: #764ba2;
-        font-weight: bold;
-        font-size: 16px;
-        cursor: pointer;
-        transition: 0.3s ease;
+    .project-card:hover{
+        transform: translateY(-10px);
+        background: rgba(255,255,255,0.2);
     }
 
-    button:hover {
-        background: #f1f1f1;
-        transform: scale(1.05);
+    .project-card h2{
+        margin-bottom:15px;
+        font-size:22px;
     }
 
-    #result {
-        margin-top: 20px;
-        font-size: 18px;
-        font-weight: 500;
-        min-height: 30px;
+    .project-card p{
+        font-size:14px;
+        line-height:1.6;
+        margin-bottom:20px;
+    }
+
+    .project-card button{
+        padding:8px 15px;
+        border:none;
+        border-radius:8px;
+        background:white;
+        color:#1f1c2c;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .project-card button:hover{
+        background:#ddd;
+        transform:scale(1.05);
+    }
+
+    .back-btn{
+        display:block;
+        margin:40px auto 0;
+        padding:10px 20px;
+        background:white;
+        color:#1f1c2c;
+        border:none;
+        border-radius:8px;
+        font-weight:bold;
+        cursor:pointer;
+        transition:0.3s;
+    }
+
+    .back-btn:hover{
+        background:#ddd;
+        transform:scale(1.05);
     }
 </style>
-
 </head>
+
 <body>
 
-<div class="container">
-    <h1>🎂 Days Calculator</h1>
-    <input type="date" id="dob">
-    <button onclick="calculateDays()">Calculate Age</button>
-    <p id="result"></p>
+<h1>🚀 My Projects</h1>
+
+<div class="projects-container">
+
+    <div class="project-card">
+        <h2>🎂 Age Calculator</h2>
+        <p>A live age calculator that calculates years, months, days, hours, minutes, and seconds dynamically using JavaScript.</p>
+        <button>View Project</button>
+    </div>
+
 </div>
 
-<script>
-    function calculateDays(){
-        let dobInput = document.getElementById("dob").value;
-
-        if (!dobInput){
-            document.getElementById("result").innerHTML = "⚠ Please select your date of birth";
-            return;
-        }
-
-        const dob = new Date(dobInput);
-        const today = new Date();
-
-        const difftime = Math.abs(today - dob);
-        const diffDays = Math.ceil(difftime / (1000 * 60 * 60 * 24));
-
-        document.getElementById("result").innerText =
-            "✨ You have lived approximately " + diffDays + " days!";
-    }
-</script>
+<a href="index.html">
+    <button class="back-btn">⬅ Back to Home</button>
+</a>
 
 </body>
 </html>
